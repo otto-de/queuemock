@@ -40,4 +40,3 @@ jobs:
             ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:latest
             ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:${{ env.BUILD_VERSION }}
           push: true
-          load: true
