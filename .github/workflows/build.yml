@@ -1,0 +1,43 @@
+name: build_on_push
+
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  DOCKER_REGISTRY: registry.hub.docker.com
+  DOCKER_REPOSITORY: queuemock
+  DOCKER_USERNAME: queuemock
+  DOCKER_IMAGE: queuemock
+  DOCKER_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  BUILD_VERSION: ${{ github.sha }}
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup docker
+        uses: docker/setup-buildx-action@v1
+        with:
+          driver: docker
+
+      - name: Login
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          tags: |
+            ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:latest
+            ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REPOSITORY }}/${{ env.DOCKER_IMAGE }}:${{ env.BUILD_VERSION }}
+          push: true
+          load: true

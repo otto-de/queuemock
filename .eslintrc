@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "overrides": [
+    {
+      "files": "*.js",
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": "sampleTransform.js",
+      "rules": {
+        "max-len": "off",
+        "no-param-reassign": "off"
+      }
+    }
+  ]
+}

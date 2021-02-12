@@ -1,0 +1,24 @@
+version: '3'
+services:
+  sqs:
+    image: softwaremill/elasticmq
+    ports:
+      - "9324:9324"
+    volumes:
+      - ./custom.conf:/opt/elasticmq.conf
+  mockserver:
+    image: mockserver/mockserver
+    ports:
+      - "1080:1080"
+    environment:
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/initializerJson.json
+    volumes:
+      - ./mockdata.json:/config/initializerJson.json
+  queuemock:
+    image: queuemock
+    environment:
+      REQUEST_URL: http://sqs:9324/queue/Request
+      RESPONSE_URL: http://sqs:9324/queue/Response
+      REST_ENDPOINT_URL: http://mockserver:1080/queuemock/sampleservice
+    volumes:
+      - ./sampleTransform.js:/dispatcher/transform.js

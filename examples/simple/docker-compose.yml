@@ -1,0 +1,16 @@
+version: '3'
+services:
+  sqs:
+    image: softwaremill/elasticmq
+    ports:
+      - "9324:9324"
+    volumes:
+      - ./custom.conf:/opt/elasticmq.conf
+  mockserver:
+    image: mockserver/mockserver
+    ports:
+      - "1080:1080"
+    environment:
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/initializerJson.json
+    volumes:
+      - ./mockdata.json:/config/initializerJson.json

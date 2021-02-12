@@ -1,0 +1,10 @@
+[
+  {
+    "httpRequest": {
+      "path": "/queuemock/simple"
+    },
+    "httpResponse": {
+      "body": "Response from REST mock"
+    }
+  }
+]

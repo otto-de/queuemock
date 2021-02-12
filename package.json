@@ -1,0 +1,23 @@
+{
+  "name": "queuemock",
+  "version": "0.0.1",
+  "description": "Listen to an SQS queue, pass request body to a REST service and return REST response as SQS message",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["docker", "mock", "REST", "SQS", "test"],
+  "author": "ingo.strauch@otto.de",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "2.799.0",
+    "node-fetch": "2.6.1",
+    "sqs-consumer": "5.5.0"
+  },
+  "devDependencies": {
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.22.1"
+  }
+}

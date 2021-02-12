@@ -1,0 +1,78 @@
+[
+  {
+    "httpRequest": {
+      "path": "/queuemock/sampleservice",
+      "body": {
+        "type": "JSON_PATH",
+        "jsonPath": "$.products[0][?(@.productNumber == '0')]"
+      }
+    },
+    "httpResponse": {
+      "body": {
+        "metainfo": {
+          "traceId": "aaa4ebe6f66b4994",
+          "timestamp": "2020-11-17T10:02:42.314Z"
+        },
+        "productStates": [
+          {
+            "externalId": "aaafc0fb-192d-4c43-bade-4645fbcc63cb",
+            "messages": [],
+            "status": "OK",
+            "productNumber": "0",
+            "productReference": "1258005798",
+            "itemStates": [
+              {
+                "externalId": "aaa9a1de-baef-45b0-bb84-b78ead1cc779",
+                "messages": [],
+                "status": "OK",
+                "itemNumber": "0",
+                "itemReference": "1258005797",
+                "variantStates": [
+                  {
+                    "externalId": "aaa9a1de-baef-45b0-bb84-b78ead1cc779",
+                    "messages": [],
+                    "status": "OK",
+                    "variantNumber": "0",
+                    "variantReference": "1258005797"
+                  }
+                ]
+              },
+              {
+                "externalId": "aaac55da-0fcf-4356-8cad-6163ba9d0f82",
+                "messages": [],
+                "status": "OK",
+                "itemNumber": "1",
+                "itemReference": "1258005797",
+                "variantStates": [
+                  {
+                    "externalId": "aaac55da-0fcf-4356-8cad-6163ba9d0f82",
+                    "messages": [],
+                    "status": "OK",
+                    "variantNumber": "0",
+                    "variantReference": "1258005798"
+                  }
+                ]
+              },
+              {
+                "externalId": "aaa287b6-4f03-47b2-9c07-52d4082c7284",
+                "messages": [],
+                "status": "OK",
+                "itemNumber": "2",
+                "itemReference": "1258005797",
+                "variantStates": [
+                  {
+                    "externalId": "aaa287b6-4f03-47b2-9c07-52d4082c7284",
+                    "messages": [],
+                    "status": "OK",
+                    "variantNumber": "0",
+                    "variantReference": "1258005799"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

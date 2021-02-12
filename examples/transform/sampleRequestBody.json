@@ -1,0 +1,44 @@
+{
+  "metainfo": {
+    "traceId": "5b54ebe6f66b4994",
+    "timestamp": "2020-11-13T16:17:27.978143Z"
+  },
+  "products": [
+    {
+      "externalId": "8adfc0fb-192d-4c43-bade-4645fbcc63cb",
+      "productNumber": "0",
+      "items": [
+        {
+          "externalId": "5f89a1de-baef-45b0-bb84-b78ead1cc779",
+          "itemNumber": "0",
+          "variants": [
+            {
+              "externalId": "5f89a1de-baef-45b0-bb84-b78ead1cc779",
+              "variantNumber": "0"
+            }
+          ]
+        },
+        {
+          "externalId": "6f7c55da-0fcf-4356-8cad-6163ba9d0f82",
+          "itemNumber": "1",
+          "variants": [
+            {
+              "externalId": "6f7c55da-0fcf-4356-8cad-6163ba9d0f82",
+              "variantNumber": "0"
+            }
+          ]
+        },
+        {
+          "externalId": "1b3287b6-4f03-47b2-9c07-52d4082c7284",
+          "itemNumber": "2",
+          "variants": [
+            {
+              "externalId": "1b3287b6-4f03-47b2-9c07-52d4082c7284",
+              "variantNumber": "0"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
