@@ -8,6 +8,7 @@ const awsDefaultRegion = process.env.AWS_DEFAULT_REGION;
 const requestUrl = process.env.REQUEST_URL;
 const responseUrl = process.env.RESPONSE_URL;
 const restEndpointUrl = process.env.REST_ENDPOINT_URL;
+const responseQueueIsFifo = responseUrl.endsWith(".fifo");
 
 AWS.config.update({
   region: awsDefaultRegion,
@@ -17,6 +18,7 @@ const SQS = new AWS.SQS();
 const app = Consumer.create({
   queueUrl: requestUrl,
   batchSize: 1,
+  attributeNames: ["MessageDeduplicationId", "MessageGroupId"],
   handleMessage: async (message) => {
     console.log('Received request message: ', message);
 
@@ -35,6 +37,8 @@ const app = Consumer.create({
         const params = {
           MessageBody: transformedBody,
           QueueUrl: responseUrl,
+          MessageGroupId: responseQueueIsFifo ? message.Attributes?.MessageGroupId || "queuemockresponse" : undefined,
+          MessageDeduplicationId: responseQueueIsFifo ? message.Attributes?.MessageDeduplicationId || Date.now().toString() : undefined,
         };
         SQS.sendMessage(
           params,
